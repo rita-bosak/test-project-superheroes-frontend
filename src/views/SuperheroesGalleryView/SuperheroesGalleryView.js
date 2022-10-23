@@ -1,12 +1,32 @@
 import { useState } from "react";
+import Modal from "react-modal";
 import { Button } from "@mui/material";
 import SuperheroesList from "../../components/SuperheroesList";
-import Modal from "../../components/Modal";
+import SuperheroForm from "../../components/SuperheroForm";
+
+Modal.setAppElement("#root");
+
+const customModalStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const SuperheroesGalleryView = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  const openModal = () => setShowModal(true);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div>
@@ -14,7 +34,13 @@ const SuperheroesGalleryView = () => {
       <Button type="button" onClick={openModal}>
         Add Superhero
       </Button>
-      {showModal && <Modal />}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customModalStyles}
+      >
+        <SuperheroForm onClose={closeModal} />
+      </Modal>
     </div>
   );
 };
