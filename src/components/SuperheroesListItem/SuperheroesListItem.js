@@ -19,9 +19,10 @@ const customModalStyles = {
 
 const SuperheroesListItem = ({ superhero }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-
   const [deleteSuperhero, { isLoading: isDeleting }] =
     useDeleteSuperheroMutation();
+
+  const { _id, nickname, images } = superhero;
 
   function openModal() {
     setIsOpen(true);
@@ -30,17 +31,17 @@ const SuperheroesListItem = ({ superhero }) => {
   function closeModal() {
     setIsOpen(false);
   }
-  const { _id, nickname, images } = superhero;
 
   return (
     <>
       <li>
-        <img src={images[0]} alt={images[0].alt} />
+        <img src={images[0].url} alt={images[0].tags.join(" ")} />
         <h2>{nickname}</h2>
         <Button type="button" onClick={openModal} disabled={isDeleting}>
           {isDeleting && <SyncLoader size={5} color="#757b7a" />} Delete
         </Button>
       </li>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

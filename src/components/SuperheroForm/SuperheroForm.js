@@ -17,9 +17,24 @@ const SuperheroForm = ({ onClose }) => {
         catch_phrase: "",
         images: "",
       }}
-      onSubmit={(values) => {
-        addSuperhero(values);
-        console.log(values);
+      onSubmit={({
+        nickname,
+        real_name,
+        origin_description,
+        superpowers,
+        catch_phrase,
+        images,
+      }) => {
+        const data = new FormData();
+        data.append("images", images[0]);
+        data.append("nickname", nickname);
+        data.append("real_name", real_name);
+        data.append("origin_description", origin_description);
+        data.append("superpowers", superpowers);
+        data.append("catch_phrase", catch_phrase);
+
+        addSuperhero(data);
+
         toast.success("New Superhero added!");
 
         onClose();
@@ -57,7 +72,9 @@ const SuperheroForm = ({ onClose }) => {
             name="images"
             type="file"
             multiple
-            onChange={(e) => setFieldValue("images", e.currentTarget.files)}
+            onChange={(e) => {
+              setFieldValue("images", e.currentTarget.files);
+            }}
           />
           <Button type="submit" variant="outlined" disabled={isSubmitting}>
             Зберегти
