@@ -37,6 +37,9 @@ const SuperheroesGalleryView = () => {
 
   return (
     <div>
+      <Button type="button" variant="outlined" onClick={openModal}>
+        Add Superhero To Collection!
+      </Button>
       {isFetching && <SyncLoader color="#757b7a" />}
       {superheroes && (
         <SuperheroesList
@@ -44,9 +47,6 @@ const SuperheroesGalleryView = () => {
           onSuperheroClick={navigateToSuperheroById}
         />
       )}
-      <Button type="button" onClick={openModal}>
-        Add Superhero
-      </Button>
 
       <Modal
         isOpen={modalIsOpen}
