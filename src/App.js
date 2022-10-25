@@ -13,7 +13,7 @@ function App() {
       <Toaster />
       <Routes>
         <Route exact path="/" element={<SuperheroesGalleryView />} />
-        <Route exact path="/superhero-info" element={<SuperheroInfoView />} />
+        <Route exact path="/:id" element={<SuperheroInfoView />} />
       </Routes>
     </>
   );

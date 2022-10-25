@@ -1,11 +1,11 @@
 import SuperheroImagesGalleryItem from "../SuperheroImagesGalleryItem";
 
-const SuperheroImagesGallery = ({ images }) => {
-  return images.map((image) => (
-    <ul>
+const SuperheroImagesGallery = ({ images }) => (
+  <ul>
+    {images.map((image) => (
       <SuperheroImagesGalleryItem key={image._id} image={image} />
-    </ul>
-  ));
-};
+    ))}
+  </ul>
+);
 
 export default SuperheroImagesGallery;

@@ -5,10 +5,10 @@ import SuperheroInfoParagraph from "../SuperheroInfoParagraph";
 const SuperheroInfo = ({ superhero }) => {
   const {
     nickname,
-    realName,
-    originDescription,
+    real_name,
+    origin_description,
     superpowers,
-    catchPhrase,
+    catch_phrase,
     images,
   } = superhero;
 
@@ -17,13 +17,13 @@ const SuperheroInfo = ({ superhero }) => {
       <SuperheroImagesGallery images={images} />
       <SuperheroInfoArticle title={nickname}>
         <SuperheroInfoParagraph title="Nickname" info={nickname} />
-        <SuperheroInfoParagraph title="Real Name" info={realName} />
+        <SuperheroInfoParagraph title="Real Name" info={real_name} />
         <SuperheroInfoParagraph
           title="Origin Description"
-          info={originDescription}
+          info={origin_description}
         />
         <SuperheroInfoParagraph title="Superpowers" info={superpowers} />
-        <SuperheroInfoParagraph title="Catch Phrase" info={catchPhrase} />
+        <SuperheroInfoParagraph title="Catch Phrase" info={catch_phrase} />
       </SuperheroInfoArticle>
     </div>
   );

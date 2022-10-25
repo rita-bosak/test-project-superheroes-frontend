@@ -1,28 +1,15 @@
 import { useState } from "react";
 import { SyncLoader } from "react-spinners";
 import { Button } from "@mui/material";
-import Modal from "react-modal";
 import { useDeleteSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
+import ConfirmationModal from "../ConfirmationModal";
 
-Modal.setAppElement("#root");
-
-const customModalStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-const SuperheroesListItem = ({ superhero }) => {
+const SuperheroesListItem = ({ superhero, onSuperheroClick }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [deleteSuperhero, { isLoading: isDeleting }] =
     useDeleteSuperheroMutation();
 
-  const { _id, nickname, images } = superhero;
+  const { _id: id, nickname, images } = superhero;
 
   function openModal() {
     setIsOpen(true);
@@ -35,26 +22,21 @@ const SuperheroesListItem = ({ superhero }) => {
   return (
     <>
       <li>
-        <img src={images[0].url} alt={images[0].tags.join(" ")} />
-        <h2>{nickname}</h2>
+        <div onClick={() => onSuperheroClick(id)}>
+          <img src={images[0].url} alt={images[0].tags.join(" ")} />
+          <h2>{nickname}</h2>
+        </div>
+
         <Button type="button" onClick={openModal} disabled={isDeleting}>
           {isDeleting && <SyncLoader size={5} color="#757b7a" />} Delete
         </Button>
       </li>
 
-      <Modal
+      <ConfirmationModal
         isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customModalStyles}
-      >
-        Are you sure?
-        <Button type="button" onClick={() => deleteSuperhero(_id)}>
-          Yes
-        </Button>
-        <Button type="button" onClick={closeModal}>
-          No
-        </Button>
-      </Modal>
+        onClose={closeModal}
+        onYes={() => deleteSuperhero(id)}
+      />
     </>
   );
 };
