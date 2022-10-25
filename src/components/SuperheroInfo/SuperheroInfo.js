@@ -1,9 +1,19 @@
+import { useState } from "react";
+import { SyncLoader } from "react-spinners";
+import { Button } from "@mui/material";
+import ConfirmationModal from "../ConfirmationModal";
 import SuperheroImagesGallery from "../SuperheroImagesGallery";
 import SuperheroInfoArticle from "../SuperheroInfoArticle";
 import SuperheroInfoParagraph from "../SuperheroInfoParagraph";
+import { useDeleteSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
 
-const SuperheroInfo = ({ superhero }) => {
+const SuperheroInfo = ({ superhero, onDelete }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [deleteSuperhero, { isLoading: isDeleting }] =
+    useDeleteSuperheroMutation();
+
   const {
+    _id: id,
     nickname,
     real_name,
     origin_description,
@@ -12,10 +22,13 @@ const SuperheroInfo = ({ superhero }) => {
     images,
   } = superhero;
 
+  const openModal = () => setIsOpen(true);
+
+  const closeModal = () => setIsOpen(false);
+
   return (
     <>
       <div>
-        <SuperheroImagesGallery images={images} />
         <SuperheroInfoArticle title={nickname}>
           <SuperheroInfoParagraph title="Nickname" info={nickname} />
           <SuperheroInfoParagraph title="Real Name" info={real_name} />
@@ -26,7 +39,24 @@ const SuperheroInfo = ({ superhero }) => {
           <SuperheroInfoParagraph title="Superpowers" info={superpowers} />
           <SuperheroInfoParagraph title="Catch Phrase" info={catch_phrase} />
         </SuperheroInfoArticle>
+        <SuperheroImagesGallery images={images} />
+        <Button
+          type="button"
+          onClick={openModal}
+          disabled={isDeleting}
+          variant="outlined"
+        >
+          {isDeleting && <SyncLoader size={5} color="#757b7a" />} Delete{" "}
+          {nickname}
+        </Button>
       </div>
+
+      <ConfirmationModal
+        isOpen={modalIsOpen}
+        onClose={closeModal}
+        message="Are you sure?"
+        onYes={() => deleteSuperhero(id)}
+      />
     </>
   );
 };
