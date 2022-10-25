@@ -11,13 +11,9 @@ const SuperheroesListItem = ({ superhero, onSuperheroClick }) => {
 
   const { _id: id, nickname, images } = superhero;
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const openModal = () => setIsOpen(true);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const closeModal = () => setIsOpen(false);
 
   return (
     <>
