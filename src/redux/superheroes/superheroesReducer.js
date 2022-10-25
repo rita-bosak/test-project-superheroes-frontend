@@ -12,6 +12,10 @@ export const superheroesApi = createApi({
       query: () => "?page=1&limit=5",
       providesTags: ["Superheroes"],
     }),
+    getSuperheroById: builder.query({
+      query: (id) => `/${id}`,
+      providesTags: ["Superheroes"],
+    }),
     addSuperhero: builder.mutation({
       query: (payload) => ({
         url: "/",
@@ -32,6 +36,7 @@ export const superheroesApi = createApi({
 
 export const {
   useGetSuperheroesQuery,
+  useGetSuperheroByIdQuery,
   useAddSuperheroMutation,
   useDeleteSuperheroMutation,
 } = superheroesApi;

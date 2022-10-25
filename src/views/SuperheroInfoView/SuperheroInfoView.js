@@ -1,13 +1,19 @@
-import SuperheroInfo from "../../components/SuperheroInfo";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getSuperheroById } from "../../redux/superheroes/superheroesSelectors";
+import { SyncLoader } from "react-spinners";
+
+import { useGetSuperheroByIdQuery } from "../../redux/superheroes/superheroesReducer";
+import SuperheroInfo from "../../components/SuperheroInfo";
 
 const SuperheroInfoView = () => {
   const { id } = useParams();
-  const superheroById = useSelector((state) => getSuperheroById(state, id));
+  const { data: superheroById, isFetching } = useGetSuperheroByIdQuery(id);
 
-  return <SuperheroInfo superhero={superheroById} />;
+  return (
+    <>
+      {isFetching && <SyncLoader color="#757b7a" />}
+      {superheroById && <SuperheroInfo superhero={superheroById} />}
+    </>
+  );
 };
 
 export default SuperheroInfoView;
