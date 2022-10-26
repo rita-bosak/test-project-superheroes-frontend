@@ -1,3 +1,15 @@
 .form {
   max-width: 900px;
 }
+
+.inputFile {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+}

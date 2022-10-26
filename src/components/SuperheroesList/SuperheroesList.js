@@ -1,18 +1,12 @@
 import SuperheroesListItem from "../SuperheroesListItem";
 
-const SuperheroesList = ({ superheroes, onSuperheroClick }) => {
+const SuperheroesList = ({ superheroes }) => {
   return (
     <ul>
       {superheroes.map((superhero) => {
         const { _id: id } = superhero;
 
-        return (
-          <SuperheroesListItem
-            key={id}
-            superhero={superhero}
-            onSuperheroClick={onSuperheroClick}
-          />
-        );
+        return <SuperheroesListItem key={id} superhero={superhero} />;
       })}
     </ul>
   );

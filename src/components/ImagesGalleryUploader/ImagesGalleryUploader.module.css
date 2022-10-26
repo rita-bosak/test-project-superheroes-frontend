@@ -1,0 +1,16 @@
+.inputTypeFile {
+  display: none;
+}
+
+.customFileUploader {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 50px;
+
+  font-weight: bold;
+
+  background-color: aliceblue;
+  border-radius: 10px;
+
+  cursor: pointer;
+}

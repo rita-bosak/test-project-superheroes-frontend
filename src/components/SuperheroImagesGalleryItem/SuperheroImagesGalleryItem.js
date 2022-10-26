@@ -3,16 +3,16 @@ import { useState } from "react";
 import { ReactComponent as Delete } from "../../images/icons/delete.svg";
 import ConfirmationModal from "../ConfirmationModal";
 import { useDeleteSuperheroImageMutation } from "../../redux/superheroes/superheroesReducer";
+import { useParams } from "react-router-dom";
 
 import s from "./SuperheroImagesGalleryItem.module.css";
-import { useParams } from "react-router-dom";
 
 const SuperheroImagesGalleryItem = ({ image }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const { id: superheroId } = useParams();
   const [deleteSuperheroImage] = useDeleteSuperheroImageMutation();
+  const { id: superheroId } = useParams();
 
-  const { url, tags, publicId } = image;
+  const { url, tags, publicId, width, height } = image;
   const tagsString = tags.join(" ");
 
   const handleImageDelete = async () => {
@@ -25,11 +25,13 @@ const SuperheroImagesGalleryItem = ({ image }) => {
 
   return (
     <>
-      <li>
-        <img src={url} alt={tagsString} />
-        <button type="button" className={s.deleteButton} onClick={openModal}>
-          <Delete className={s.deleteSvg} />
-        </button>
+      <li className={s.imageGalleryItem}>
+        <div className={s.thumb}>
+          <button type="button" onClick={openModal} className={s.deleteButton}>
+            <Delete className={s.deleteSvg} />
+          </button>
+          <img src={url} width={width} height={height} alt={tagsString} />
+        </div>
       </li>
 
       <ConfirmationModal

@@ -116,21 +116,30 @@ const SuperheroForm = ({ onClose }) => {
             />
             <input
               name="images"
+              id="form-image-uploader"
               type="file"
               multiple
               onChange={handleImagesInput}
+              className={s.inputFile}
             />
-            <Button type="submit" variant="outlined" disabled={isSubmitting}>
-              {isLoading && <SyncLoader size={5} color="#757b7a" />}Зберегти
-            </Button>
-            <Button
-              variant="outlined"
-              type="button"
-              disabled={isSubmitting}
-              onClick={onClose}
-            >
-              Скасувати
-            </Button>
+            <div className={s.buttonsContainer}>
+              <Button
+                type="submit"
+                variant="outlined"
+                disabled={isSubmitting}
+                sx={{ mr: 3 }}
+              >
+                {isLoading && <SyncLoader size={5} color="#757b7a" />}Зберегти
+              </Button>
+              <Button
+                variant="outlined"
+                type="button"
+                disabled={isSubmitting}
+                onClick={onClose}
+              >
+                Скасувати
+              </Button>
+            </div>
           </Form>
         );
       }}

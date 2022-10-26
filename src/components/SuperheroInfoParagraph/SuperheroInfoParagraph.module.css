@@ -1,0 +1,7 @@
+.info:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.infoTitle {
+  font-weight: bold;
+}

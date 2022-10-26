@@ -1,6 +1,33 @@
+.thumb {
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.imageGalleryItem {
+  display: inline-block;
+}
+
+.imageGalleryItem:not(:last-child) {
+  margin-right: 15px;
+}
+
 .deleteButton {
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+  opacity: 0;
+
   border: none;
-  background-color: transparent;
+  background-color: rgb(243, 255, 253);
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.thumb:hover .deleteButton {
+  opacity: 1;
 }
 
 .deleteButton:hover,

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { Button } from "@mui/material";
 import { SyncLoader } from "react-spinners";
@@ -7,6 +6,7 @@ import { SyncLoader } from "react-spinners";
 import SuperheroesList from "../../components/SuperheroesList";
 import SuperheroForm from "../../components/SuperheroForm";
 import { useGetSuperheroesQuery } from "../../redux/superheroes/superheroesReducer";
+import s from "./SuperheroesGalleryView.module.css";
 
 Modal.setAppElement("#root");
 
@@ -25,11 +25,6 @@ const SuperheroesGalleryView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const { data: superheroes, isFetching } = useGetSuperheroesQuery();
-  const navigate = useNavigate();
-
-  const navigateToSuperheroById = (id) => {
-    navigate(`/${id}`);
-  };
 
   const openModal = () => setIsOpen(true);
 
@@ -37,16 +32,17 @@ const SuperheroesGalleryView = () => {
 
   return (
     <div>
-      <Button type="button" variant="outlined" onClick={openModal}>
+      <Button
+        type="button"
+        variant="outlined"
+        onClick={openModal}
+        className={s.addSuperheroBtn}
+        sx={{ mt: 2, mb: 4 }}
+      >
         Add Superhero To Collection!
       </Button>
       {isFetching && <SyncLoader color="#757b7a" />}
-      {superheroes && (
-        <SuperheroesList
-          superheroes={superheroes}
-          onSuperheroClick={navigateToSuperheroById}
-        />
-      )}
+      {superheroes && <SuperheroesList superheroes={superheroes} />}
 
       <Modal
         isOpen={modalIsOpen}

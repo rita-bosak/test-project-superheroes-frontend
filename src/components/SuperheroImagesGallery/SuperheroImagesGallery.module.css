@@ -1,13 +1,5 @@
-.inputTypeFile {
-  display: none;
-}
-
-.customFileUploader {
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-}
-
-.addImageBtn {
-  fill: rgb(103, 109, 109);
+.imagesGallery {
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
