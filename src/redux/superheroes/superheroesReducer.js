@@ -1,10 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const BASE_URL =
+  "https://project-superheroes-backend.herokuapp.com/api/superheroes";
+
+// const SERVER_URL = 'http://localhost:5000/api/superheroes';
+
 export const superheroesApi = createApi({
   reducerPath: "superheroesApi",
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      "https://project-superheroes-backend.herokuapp.com/api/superheroes",
+    baseUrl: BASE_URL,
   }),
   tagTypes: ["Superheroes"],
   endpoints: (builder) => ({
@@ -31,6 +35,21 @@ export const superheroesApi = createApi({
       }),
       invalidatesTags: ["Superheroes"],
     }),
+    deleteSuperheroImage: builder.mutation({
+      query: ({ superheroId, publicId }) => ({
+        url: `/${superheroId}/images/delete/${publicId}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["Superheroes"],
+    }),
+    addSuperheroImage: builder.mutation({
+      query: ({ superheroId, data }) => ({
+        url: `/${superheroId}/images/add`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["Superheroes"],
+    }),
   }),
 });
 
@@ -39,4 +58,6 @@ export const {
   useGetSuperheroByIdQuery,
   useAddSuperheroMutation,
   useDeleteSuperheroMutation,
+  useDeleteSuperheroImageMutation,
+  useAddSuperheroImageMutation,
 } = superheroesApi;

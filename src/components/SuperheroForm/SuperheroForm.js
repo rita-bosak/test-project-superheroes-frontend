@@ -28,6 +28,7 @@ const SuperheroForm = ({ onClose }) => {
     data.append("superpowers", superpowers);
     data.append("catch_phrase", catch_phrase);
     images.forEach((image) => data.append("images", image));
+
     return data;
   };
 
@@ -61,11 +62,20 @@ const SuperheroForm = ({ onClose }) => {
         handleSubmit(formData);
       }}
     >
-      {({ values, handleChange, isSubmitting, setFieldValue }) => {
+      {({
+        values,
+        handleChange,
+        isSubmitting,
+        setFieldValue,
+        errors,
+        touched,
+      }) => {
         const handleImagesInput = (e) => {
           const filesArray = [...e.currentTarget.files];
           setFieldValue("images", filesArray);
         };
+
+        const error = (name) => errors[name] && touched[name];
 
         return (
           <Form encType="multipart/form-data" className={s.form}>
@@ -74,30 +84,35 @@ const SuperheroForm = ({ onClose }) => {
               label="Nickname"
               value={values.nickname}
               onChange={handleChange}
+              error={error("nickname")}
             />
             <SuperheroFormTextField
               name="real_name"
               label="Real Name"
               value={values.real_name}
               onChange={handleChange}
+              error={error("real_name")}
             />
             <SuperheroFormTextField
               name="origin_description"
               label="Origin Description"
               value={values.origin_description}
               onChange={handleChange}
+              error={error("origin_description")}
             />
             <SuperheroFormTextField
               name="superpowers"
               label="Superpowers"
               value={values.superpowers}
               onChange={handleChange}
+              error={error("superpowers")}
             />
             <SuperheroFormTextField
               name="catch_phrase"
               label="Catch Phrase"
               value={values.catch_phrase}
               onChange={handleChange}
+              error={error("catch_phrase")}
             />
             <input
               name="images"

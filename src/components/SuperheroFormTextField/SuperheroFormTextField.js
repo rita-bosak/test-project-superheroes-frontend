@@ -1,8 +1,7 @@
 import { TextField } from "@mui/material";
-import { Field, ErrorMessage } from "formik";
-import s from "./SuperheroFormTextField.module.css";
+import { Field } from "formik";
 
-const SuperheroFormTextField = ({ name, label, value, onChange }) => {
+const SuperheroFormTextField = ({ name, label, value, onChange, error }) => {
   return (
     <Field
       as={TextField}
@@ -13,8 +12,9 @@ const SuperheroFormTextField = ({ name, label, value, onChange }) => {
       value={value}
       onChange={onChange}
       fullWidth
-      helperText={<ErrorMessage name={name} />}
-      className={s.field}
+      margin="normal"
+      required
+      error={error}
     />
   );
 };
