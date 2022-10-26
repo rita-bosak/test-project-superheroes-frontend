@@ -1,0 +1,13 @@
+.deleteButton {
+  border: none;
+  background-color: transparent;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+  cursor: pointer;
+}
+
+.deleteSvg {
+  fill: grey;
+}
