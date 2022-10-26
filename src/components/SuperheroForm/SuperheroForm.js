@@ -6,6 +6,7 @@ import { SyncLoader } from "react-spinners";
 import { useAddSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
 import SuperheroFormTextField from "../SuperheroFormTextField";
 import addSuperheroValidation from "../../services/validationSchemas/addSuperheroValidation";
+import s from "./SuperheroForm.module.css";
 
 const SuperheroForm = ({ onClose }) => {
   const [addSuperhero, { isLoading }] = useAddSuperheroMutation();
@@ -67,29 +68,34 @@ const SuperheroForm = ({ onClose }) => {
         };
 
         return (
-          <Form encType="multipart/form-data">
+          <Form encType="multipart/form-data" className={s.form}>
             <SuperheroFormTextField
               name="nickname"
+              label="Nickname"
               value={values.nickname}
               onChange={handleChange}
             />
             <SuperheroFormTextField
               name="real_name"
+              label="Real Name"
               value={values.real_name}
               onChange={handleChange}
             />
             <SuperheroFormTextField
               name="origin_description"
+              label="Origin Description"
               value={values.origin_description}
               onChange={handleChange}
             />
             <SuperheroFormTextField
               name="superpowers"
+              label="Superpowers"
               value={values.superpowers}
               onChange={handleChange}
             />
             <SuperheroFormTextField
               name="catch_phrase"
+              label="Catch Phrase"
               value={values.catch_phrase}
               onChange={handleChange}
             />
@@ -99,7 +105,6 @@ const SuperheroForm = ({ onClose }) => {
               multiple
               onChange={handleImagesInput}
             />
-            <ErrorMessage component="div">fee</ErrorMessage>
             <Button type="submit" variant="outlined" disabled={isSubmitting}>
               {isLoading && <SyncLoader size={5} color="#757b7a" />}Зберегти
             </Button>

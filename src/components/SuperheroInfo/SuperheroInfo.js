@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { SyncLoader } from "react-spinners";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import ConfirmationModal from "../ConfirmationModal";
 import SuperheroImagesGallery from "../SuperheroImagesGallery";
 import SuperheroInfoArticle from "../SuperheroInfoArticle";
 import SuperheroInfoParagraph from "../SuperheroInfoParagraph";
 import { useDeleteSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
 
-const SuperheroInfo = ({ superhero, onDelete }) => {
+const SuperheroInfo = ({ superhero }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [deleteSuperhero, { isLoading: isDeleting }] =
     useDeleteSuperheroMutation();
+  const navigate = useNavigate();
 
   const {
     _id: id,
@@ -21,6 +24,11 @@ const SuperheroInfo = ({ superhero, onDelete }) => {
     catch_phrase,
     images,
   } = superhero;
+
+  const handleDeleteSuperhero = () => {
+    deleteSuperhero(id);
+    navigate("/");
+  };
 
   const openModal = () => setIsOpen(true);
 
@@ -55,7 +63,7 @@ const SuperheroInfo = ({ superhero, onDelete }) => {
         isOpen={modalIsOpen}
         onClose={closeModal}
         message="Are you sure?"
-        onYes={() => deleteSuperhero(id)}
+        onYes={handleDeleteSuperhero}
       />
     </>
   );
