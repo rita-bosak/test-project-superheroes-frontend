@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SyncLoader } from "react-spinners";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import ConfirmationModal from "../ConfirmationModal";
 import SuperheroImagesGallery from "../SuperheroImagesGallery";
@@ -28,6 +29,7 @@ const SuperheroInfo = ({ superhero }) => {
   const handleDeleteSuperhero = () => {
     deleteSuperhero(id);
     navigate("/");
+    toast.success(`${nickname} has been deleted from colletion.`);
   };
 
   const openModal = () => setIsOpen(true);
