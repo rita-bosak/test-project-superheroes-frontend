@@ -13,10 +13,6 @@ const customModalStyles = {
 };
 
 const ConfirmationModal = ({ isOpen, onClose, onYes, message }) => {
-  const handleYesClick = () => {
-    onYes();
-    onClose();
-  };
   return (
     <ReactModal
       isOpen={isOpen}
@@ -24,7 +20,7 @@ const ConfirmationModal = ({ isOpen, onClose, onYes, message }) => {
       style={customModalStyles}
     >
       {message}
-      <Button type="button" onClick={handleYesClick}>
+      <Button type="button" onClick={onYes}>
         Yes
       </Button>
       <Button type="button" onClick={onClose}>

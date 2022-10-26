@@ -26,10 +26,15 @@ const SuperheroInfo = ({ superhero }) => {
     images,
   } = superhero;
 
-  const handleDeleteSuperhero = () => {
-    deleteSuperhero(id);
-    navigate("/");
-    toast.success(`${nickname} has been deleted from colletion.`);
+  const handleDeleteSuperhero = async () => {
+    closeModal();
+    try {
+      await deleteSuperhero(id);
+      navigate("/");
+      toast.success(`${nickname} has been deleted from colletion.`);
+    } catch (error) {
+      toast.error("Something went wrong :( Try again!");
+    }
   };
 
   const openModal = () => setIsOpen(true);
