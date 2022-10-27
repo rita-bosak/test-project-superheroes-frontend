@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { Field } from "formik";
 
-const SuperheroFormTextField = ({ name, label, value, onChange, error }) => {
+const SuperheroFormField = ({ name, label, value, onChange, error }) => {
   return (
     <Field
       as={TextField}
@@ -19,4 +19,4 @@ const SuperheroFormTextField = ({ name, label, value, onChange, error }) => {
   );
 };
 
-export default SuperheroFormTextField;
+export default SuperheroFormField;

@@ -4,10 +4,9 @@ import { ReactComponent as Delete } from "../../images/icons/delete.svg";
 import ConfirmationModal from "../ConfirmationModal";
 import { useDeleteSuperheroImageMutation } from "../../redux/superheroes/superheroesReducer";
 import { useParams } from "react-router-dom";
+import s from "./ImagesGalleryItem.module.css";
 
-import s from "./SuperheroImagesGalleryItem.module.css";
-
-const SuperheroImagesGalleryItem = ({ image }) => {
+const ImagesGalleryItem = ({ image }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [deleteSuperheroImage] = useDeleteSuperheroImageMutation();
   const { id: superheroId } = useParams();
@@ -44,4 +43,4 @@ const SuperheroImagesGalleryItem = ({ image }) => {
   );
 };
 
-export default SuperheroImagesGalleryItem;
+export default ImagesGalleryItem;

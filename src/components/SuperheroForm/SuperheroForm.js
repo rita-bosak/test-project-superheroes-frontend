@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { SyncLoader } from "react-spinners";
 
 import { useAddSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
-import SuperheroFormTextField from "../SuperheroFormTextField";
+import SuperheroFormField from "../SuperheroFormField";
 import addSuperheroValidation from "../../services/validationSchemas/addSuperheroValidation";
 import s from "./SuperheroForm.module.css";
 
@@ -79,35 +79,35 @@ const SuperheroForm = ({ onClose }) => {
 
         return (
           <Form encType="multipart/form-data" className={s.form}>
-            <SuperheroFormTextField
+            <SuperheroFormField
               name="nickname"
               label="Nickname"
               value={values.nickname}
               onChange={handleChange}
               error={error("nickname")}
             />
-            <SuperheroFormTextField
+            <SuperheroFormField
               name="real_name"
               label="Real Name"
               value={values.real_name}
               onChange={handleChange}
               error={error("real_name")}
             />
-            <SuperheroFormTextField
+            <SuperheroFormField
               name="origin_description"
               label="Origin Description"
               value={values.origin_description}
               onChange={handleChange}
               error={error("origin_description")}
             />
-            <SuperheroFormTextField
+            <SuperheroFormField
               name="superpowers"
               label="Superpowers"
               value={values.superpowers}
               onChange={handleChange}
               error={error("superpowers")}
             />
-            <SuperheroFormTextField
+            <SuperheroFormField
               name="catch_phrase"
               label="Catch Phrase"
               value={values.catch_phrase}

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 import SuperheroesList from "../../components/SuperheroesList";
 import SuperheroForm from "../../components/SuperheroForm";
-import s from "./SuperheroesGalleryView.module.css";
 
 Modal.setAppElement("#root");
 
@@ -37,13 +36,26 @@ const SuperheroesGalleryView = () => {
         Add New Superhero!
       </Button>
 
-      <SuperheroesList />
+      <Typography
+        align="center"
+        gutterBottom={true}
+        variant="h2"
+        variantMapping={{ h2: "h1" }}
+      >
+        Superheroes
+      </Typography>
+
+      <SuperheroesList title="Superheroes" />
 
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customModalStyles}
       >
+        <Typography>
+          Please, describe the Superhero and upload images. Take notice, all
+          fields are required.
+        </Typography>
         <SuperheroForm onClose={closeModal} />
       </Modal>
     </>

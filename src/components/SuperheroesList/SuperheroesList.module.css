@@ -1,3 +1,7 @@
 .superheroesList {
   margin-bottom: 15px;
 }
+
+.superheroesList + nav > ul {
+  justify-content: center;
+}

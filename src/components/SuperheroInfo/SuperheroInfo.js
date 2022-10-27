@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 
 import { ReactComponent as BackSvg } from "../../images/icons/back.svg";
 import ConfirmationModal from "../ConfirmationModal";
-import SuperheroImagesGallery from "../SuperheroImagesGallery";
+import ImagesGallery from "../ImagesGallery";
 import SuperheroInfoArticle from "../SuperheroInfoArticle";
 import SuperheroInfoParagraph from "../SuperheroInfoParagraph";
 import { useDeleteSuperheroMutation } from "../../redux/superheroes/superheroesReducer";
@@ -58,7 +58,7 @@ const SuperheroInfo = ({ superhero }) => {
         <SuperheroInfoParagraph title="Superpowers" info={superpowers} />
         <SuperheroInfoParagraph title="Catch Phrase" info={catch_phrase} />
       </SuperheroInfoArticle>
-      <SuperheroImagesGallery images={images} />
+      <ImagesGallery images={images} />
       <Button
         type="button"
         onClick={openModal}
