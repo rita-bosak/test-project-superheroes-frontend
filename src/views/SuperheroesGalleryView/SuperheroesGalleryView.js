@@ -39,8 +39,9 @@ const SuperheroesGalleryView = () => {
         className={s.addSuperheroBtn}
         sx={{ mt: 2, mb: 4 }}
       >
-        Add Superhero To Collection!
+        Add New Superhero!
       </Button>
+
       {isFetching && <SyncLoader color="#757b7a" />}
       {superheroes && <SuperheroesList superheroes={superheroes} />}
 

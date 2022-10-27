@@ -32,9 +32,10 @@ const SuperheroForm = ({ onClose }) => {
     return data;
   };
 
-  const handleSubmit = async (formDataValues) => {
+  const handleSubmit = async (values) => {
     try {
-      await addSuperhero(formDataValues);
+      const formData = createFormData(values);
+      await addSuperhero(formData);
       toast.success("New Superhero added!");
       onClose();
     } catch {
@@ -58,8 +59,7 @@ const SuperheroForm = ({ onClose }) => {
         if (values.images.length === 0) {
           return toast.error("Upload images of your Superhero!");
         }
-        const formData = createFormData(values);
-        handleSubmit(formData);
+        handleSubmit(values);
       }}
     >
       {({
@@ -75,7 +75,7 @@ const SuperheroForm = ({ onClose }) => {
           setFieldValue("images", filesArray);
         };
 
-        const error = (name) => errors[name] && touched[name];
+        const error = (name) => (touched[name] && errors[name] ? true : false);
 
         return (
           <Form encType="multipart/form-data" className={s.form}>

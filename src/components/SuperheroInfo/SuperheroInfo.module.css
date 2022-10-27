@@ -1,0 +1,15 @@
+.backLink {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(201, 201, 201);
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.backSvg {
+  fill: rgb(75, 73, 73);
+}
