@@ -11,7 +11,7 @@ function App() {
       <Toaster />
       <Container>
         <Routes>
-          <Route exact path="/" element={<SuperheroesGalleryView />} />
+          <Route path="/" element={<SuperheroesGalleryView />} />
           <Route exact path="/:id" element={<SuperheroInfoView />} />
         </Routes>
       </Container>
