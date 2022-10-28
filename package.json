@@ -2,6 +2,7 @@
   "name": "test-project-superheroes-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rita-bosak.github.io/test-project-superheroes-frontend",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
