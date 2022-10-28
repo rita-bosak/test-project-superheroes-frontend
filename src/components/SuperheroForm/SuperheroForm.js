@@ -70,8 +70,6 @@ const SuperheroForm = ({ onClose }) => {
         const handleImagesInput = (e) => {
           const filesArray = [...e.currentTarget.files];
           setFieldValue("images", filesArray);
-          const check = values.images.map((value) => value.type);
-          console.log(check);
         };
 
         const error = (name) => (touched[name] && errors[name] ? true : false);
