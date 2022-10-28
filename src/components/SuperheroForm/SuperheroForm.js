@@ -45,7 +45,7 @@ const SuperheroForm = ({ onClose }) => {
 
   return (
     <Formik
-      // validateOnBlur
+      validateOnBlur
       initialValues={{
         nickname: "",
         real_name: "",
@@ -56,9 +56,6 @@ const SuperheroForm = ({ onClose }) => {
       }}
       validationSchema={addSuperheroValidation}
       onSubmit={(values) => {
-        if (values.images.length === 0) {
-          return toast.error("Upload images of your Superhero!");
-        }
         handleSubmit(values);
       }}
     >
