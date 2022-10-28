@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/test-project-superheroes-frontend/static/css/main.6201f701.css",
-    "main.js": "/test-project-superheroes-frontend/static/js/main.75e6e750.js",
+    "main.css": "/test-project-superheroes-frontend/static/css/main.c7724799.css",
+    "main.js": "/test-project-superheroes-frontend/static/js/main.a1e1712c.js",
     "static/media/delete.svg": "/test-project-superheroes-frontend/static/media/delete.2a0ca29c7b4427355afa6ff1a373eee1.svg",
     "index.html": "/test-project-superheroes-frontend/index.html",
+    "static/media/edit.svg": "/test-project-superheroes-frontend/static/media/edit.cd53a32bfcb27c2480738cda234db8bf.svg",
     "static/media/back.svg": "/test-project-superheroes-frontend/static/media/back.f41ae23c3f8d8893f0a614d69f95193f.svg",
-    "main.6201f701.css.map": "/test-project-superheroes-frontend/static/css/main.6201f701.css.map",
-    "main.75e6e750.js.map": "/test-project-superheroes-frontend/static/js/main.75e6e750.js.map"
+    "static/media/close.svg": "/test-project-superheroes-frontend/static/media/close.67891e8421b56922f9db7d38ddffa3b8.svg",
+    "static/media/save.svg": "/test-project-superheroes-frontend/static/media/save.ec921abd75dfd6b71370671ea804e952.svg",
+    "main.c7724799.css.map": "/test-project-superheroes-frontend/static/css/main.c7724799.css.map",
+    "main.a1e1712c.js.map": "/test-project-superheroes-frontend/static/js/main.a1e1712c.js.map"
   },
   "entrypoints": [
-    "static/css/main.6201f701.css",
-    "static/js/main.75e6e750.js"
+    "static/css/main.c7724799.css",
+    "static/js/main.a1e1712c.js"
   ]
 }
