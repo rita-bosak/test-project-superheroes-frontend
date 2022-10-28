@@ -46,6 +46,14 @@ export const superheroesApi = createApi({
       }),
       invalidatesTags: ["Superheroes"],
     }),
+    updateSuperheroInfo: builder.mutation({
+      query: ({ superheroId, property, ...payload }) => ({
+        url: `/${superheroId}/edit/${property}`,
+        method: "PATCH",
+        body: payload,
+      }),
+      invalidatesTags: ["Superheroes"],
+    }),
   }),
 });
 
@@ -56,4 +64,5 @@ export const {
   useDeleteSuperheroMutation,
   useDeleteSuperheroImageMutation,
   useAddSuperheroImageMutation,
+  useUpdateSuperheroInfoMutation,
 } = superheroesApi;
