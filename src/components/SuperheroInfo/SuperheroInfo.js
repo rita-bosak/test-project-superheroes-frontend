@@ -48,6 +48,7 @@ const SuperheroInfo = ({ superhero }) => {
       <Link to="/" className={s.backLink}>
         <BackSvg className={s.backSvg} />
       </Link>
+
       <SuperheroInfoArticle title={nickname}>
         <SuperheroInfoParagraph title="Nickname" info={nickname} />
         <SuperheroInfoParagraph title="Real Name" info={real_name} />
@@ -58,7 +59,9 @@ const SuperheroInfo = ({ superhero }) => {
         <SuperheroInfoParagraph title="Superpowers" info={superpowers} />
         <SuperheroInfoParagraph title="Catch Phrase" info={catch_phrase} />
       </SuperheroInfoArticle>
+
       <ImagesGallery images={images} />
+
       <Button
         type="button"
         onClick={openModal}
@@ -68,7 +71,6 @@ const SuperheroInfo = ({ superhero }) => {
         {isDeleting && <SyncLoader size={5} color="#757b7a" />} Delete{" "}
         {nickname}
       </Button>
-
       <ConfirmationModal
         isOpen={modalIsOpen}
         onClose={closeModal}

@@ -23,8 +23,8 @@ const ImagesGalleryUploader = () => {
       await addSuperheroImage({ superheroId, data });
 
       toast.success("Successful!");
-    } catch {
-      toast.error("Something went wrong :( Try again!");
+    } catch (error) {
+      toast.error(`${error}`);
     }
   };
 

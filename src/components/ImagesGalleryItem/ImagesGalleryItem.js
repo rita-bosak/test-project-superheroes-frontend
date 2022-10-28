@@ -5,6 +5,7 @@ import ConfirmationModal from "../ConfirmationModal";
 import { useDeleteSuperheroImageMutation } from "../../redux/superheroes/superheroesReducer";
 import { useParams } from "react-router-dom";
 import s from "./ImagesGalleryItem.module.css";
+import toast from "react-hot-toast";
 
 const ImagesGalleryItem = ({ image }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -15,7 +16,11 @@ const ImagesGalleryItem = ({ image }) => {
   const tagsString = tags.join(" ");
 
   const handleImageDelete = async () => {
-    await deleteSuperheroImage({ superheroId, publicId });
+    try {
+      await deleteSuperheroImage({ superheroId, publicId });
+    } catch {
+      toast.error("Something went wrong!");
+    }
   };
 
   const openModal = () => setIsOpen(true);

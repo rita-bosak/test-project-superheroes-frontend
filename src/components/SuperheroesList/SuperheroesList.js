@@ -6,10 +6,9 @@ import { useGetSuperheroesQuery } from "../../redux/superheroes/superheroesReduc
 import s from "./SuperheroesList.module.css";
 import { useState } from "react";
 
-const SuperheroesList = ({ title }) => {
+const SuperheroesList = () => {
   const [page, setPage] = useState(1);
   const limit = 5;
-
   const { data, isFetching } = useGetSuperheroesQuery({ page, limit });
 
   const paginationCount = Math.ceil(data && data.collectionLength / limit);
@@ -35,8 +34,6 @@ const SuperheroesList = ({ title }) => {
           <Pagination
             count={paginationCount}
             onChange={handlePaginationChange}
-            sx={{ justifyContent: "center" }}
-            className={s.pagination}
           />
         </>
       )}

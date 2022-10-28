@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { Formik, Form } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { toast } from "react-hot-toast";
 import { SyncLoader } from "react-spinners";
 
@@ -45,7 +45,7 @@ const SuperheroForm = ({ onClose }) => {
 
   return (
     <Formik
-      validateOnBlur
+      // validateOnBlur
       initialValues={{
         nickname: "",
         real_name: "",
@@ -73,6 +73,8 @@ const SuperheroForm = ({ onClose }) => {
         const handleImagesInput = (e) => {
           const filesArray = [...e.currentTarget.files];
           setFieldValue("images", filesArray);
+          const check = values.images.map((value) => value.type);
+          console.log(check);
         };
 
         const error = (name) => (touched[name] && errors[name] ? true : false);
@@ -122,6 +124,7 @@ const SuperheroForm = ({ onClose }) => {
               onChange={handleImagesInput}
               className={s.inputFile}
             />
+            <ErrorMessage name="images" component="div" />
             <div className={s.buttonsContainer}>
               <Button
                 type="submit"
