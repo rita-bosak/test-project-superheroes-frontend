@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test-project-superheroes-frontend/static/css/main.6201f701.css",
+    "main.js": "/test-project-superheroes-frontend/static/js/main.4c272533.js",
+    "static/media/delete.svg": "/test-project-superheroes-frontend/static/media/delete.2a0ca29c7b4427355afa6ff1a373eee1.svg",
+    "index.html": "/test-project-superheroes-frontend/index.html",
+    "static/media/back.svg": "/test-project-superheroes-frontend/static/media/back.f41ae23c3f8d8893f0a614d69f95193f.svg",
+    "main.6201f701.css.map": "/test-project-superheroes-frontend/static/css/main.6201f701.css.map",
+    "main.4c272533.js.map": "/test-project-superheroes-frontend/static/js/main.4c272533.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6201f701.css",
+    "static/js/main.4c272533.js"
+  ]
+}
